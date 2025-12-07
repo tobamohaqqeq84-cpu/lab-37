@@ -11,6 +11,7 @@ int sum_ascii(const std::string &s){
 int main() {
     cout << sum_ascii("536B9DFC93AF")<< endl;
     cout << sum_ascii("E1D2665B21EA") << endl;
+    //milestone one 
     
 //char a = 'A';
 //cout << a << endl;
