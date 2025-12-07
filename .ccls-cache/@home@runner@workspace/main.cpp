@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+int sum_ascii(const std::string &s
 int main() {
 char a = 'A';
 cout << a << endl;
