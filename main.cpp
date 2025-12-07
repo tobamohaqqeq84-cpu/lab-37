@@ -3,15 +3,15 @@
 
 using namespace std;
 
-int sum_ascii(const std::string &s){
-    int total =0;
+int gen_hash_index(const string& s){
+    int sum =0;
     for (char c : s){
-        total +=  static_cast<unsigned char>(c);
+        sum += (int)c;
     }
-    return total;
+    return sum % TABLE_SIZE;
 }
 int main() {
-    cout << sum_ascii("536B9DFC93AF")<< endl;
+    cout << GEN("536B9DFC93AF")<< endl;
     cout << sum_ascii("E1D2665B21EA") << endl;
 
     ifstream fin("lab-37-data.txt");
