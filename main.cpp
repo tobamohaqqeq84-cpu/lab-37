@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream> // for part 2
+
 using namespace std;
 
 int sum_ascii(const std::string &s){
@@ -11,6 +13,23 @@ int sum_ascii(const std::string &s){
 int main() {
     cout << sum_ascii("536B9DFC93AF")<< endl;
     cout << sum_ascii("E1D2665B21EA") << endl;
+
+    ifstream fin("lab-37-data.txt");
+
+    if (!fin){
+        cout << "Error opening file!" << endl;
+        return 1;
+    }
+    string line;
+
+    long long grand_total = 0;
+
+    while (fin >> line){
+        grand_total += sum_ascii(line);
+    }
+    cout << "Grand total ACII sum = " << grand_total << endl; 
+    return 0;
+
     //milestone one 
     
 //char a = 'A';
