@@ -30,7 +30,7 @@ int main() {
     cout << "Grand total ACII sum = " << grand_total << endl; 
     return 0;
 
-    //milestone one 
+    //milestone two
     
 //char a = 'A';
 //cout << a << endl;
