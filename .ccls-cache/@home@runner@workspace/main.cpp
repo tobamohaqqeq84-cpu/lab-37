@@ -16,9 +16,6 @@ int gen_hash_index(const string& s){
     return sum % TABLE_SIZE;
 }
 int main() {
-  
-    cout << gen_hash_index("536B9DFC93AF")<< endl;
-    cout << gen_hash_index("E1D2665B21EA") << endl;
 
     ifstream fin("lab-37-data.txt");
 
