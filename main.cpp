@@ -1,15 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int sum_ascii(const std::string &s
+int sum_ascii(const std::string &s){
+    int total =0;
+    for (char c : s){
+        total +=  static_cast<unsigned char>(c);
+    }
+    return total;
+}
 int main() {
-char a = 'A';
-cout << a << endl;
-cout << (int) a << endl;
-int b = 66;
-cout << b << endl;
-cout << (char) b << endl;
-return 0;
+    cout << sum_ascii("536B9DFC93AF")<< endl;
+    cout << sum_ascii("E1D2665B21EA") << endl;
+    
+//char a = 'A';
+//cout << a << endl;
+//cout << (int) a << endl
+    
+//int b = 66;
+//cout << b << endl;
+//cout << (char) b << endl;
+//return 0;
 }
 /*
 These targets are present in the dataset and can be used for testing:
