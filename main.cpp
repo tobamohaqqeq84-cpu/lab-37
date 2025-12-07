@@ -1,7 +1,12 @@
 #include <iostream>
+#include <string>
+#include <map>
+#include <list>
 #include <fstream> // for part 2
 
 using namespace std;
+
+const int TABLE_SIZE = 97;
 
 int gen_hash_index(const string& s){
     int sum =0;
@@ -11,8 +16,9 @@ int gen_hash_index(const string& s){
     return sum % TABLE_SIZE;
 }
 int main() {
-    cout << GEN("536B9DFC93AF")<< endl;
-    cout << sum_ascii("E1D2665B21EA") << endl;
+  
+    cout << gen_hash_index("536B9DFC93AF")<< endl;
+    cout << gen_hash_index("E1D2665B21EA") << endl;
 
     ifstream fin("lab-37-data.txt");
 
@@ -20,15 +26,27 @@ int main() {
         cout << "Error opening file!" << endl;
         return 1;
     }
+      map<int, list<string>> hash_table;
+
     string line;
-
-    long long grand_total = 0;
-
     while (fin >> line){
-        grand_total += sum_ascii(line);
+        int index = gen_hash_index(line);
+        hash_table[index].push_back(line);
     }
-    cout << "Grand total ACII sum = " << grand_total << endl; 
-    return 0;
+    int shown = 0;
+    for(auto &entry :hash_table){
+        cout << "Index " << entry.first << ": ";
+        for (const string &s : entry.second){
+            cout << s << " ";
+        }
+        cout << endl;
+        shown++;
+        if (shown == 100){
+            break;
+        }
+        return 0;
+    }
+
 
     //milestone two
     
