@@ -19,18 +19,19 @@ int gen_hash_index(const string& s){
     }
     return sum % TABLE_SIZE;
 }
-void load_data(map<int, list<string>>& hash_table){
-ifstream fin("lab-37-data.txt");
-if(!fin){
-    cout << "Error opening file!" << endl;
-    return;
-}
-    string line;
-    while (fin >> line){
-        int index = gen_hash_index(line);
-        hash_table[index].push_back(line);
+void print_first_100(const map<int, list<string>>& hash_table){
+    int shown = 0;
+    for (const auto& entry : hash_table){
+        cout << "Index " << entry.first << ": ";
+        for (const string& s : entry.second){
+            cout << s << " ";
+        }
+        cout << endl;
+        shown++;
+        if (shown == 100){
+            break;
+        }
     }
-    cout << "Data loaded successfully!" << endl;
 }
     
     
@@ -49,6 +50,28 @@ int main() {
         int index = gen_hash_index(line);
         hash_table[index].push_back(line);
     }
+
+    int choice = 0;
+    do{
+        cout << "\n****Hash Table Menu****\n";
+        cout << "1. Print first 100 entries\n";
+        cout << "2. Search for a key\n";
+        cout << "3. Add a key\n"; 
+        cout << "4. Remove a key\n";
+        cout << "5. Modify a key\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if(!cin ){
+            cin.clear();
+            cin.ignore(10000, \n);
+            continue;
+        }
+        switch(choice){
+            
+        }
+        }
     int shown = 0;
     for(auto &entry :hash_table){
         cout << "Index " << entry.first << ": ";
