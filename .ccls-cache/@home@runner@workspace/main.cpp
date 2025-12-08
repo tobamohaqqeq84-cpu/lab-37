@@ -52,6 +52,15 @@ bool search_key(const map<int, list<string>>& hash_table, const string& key){
     return false;
     }
 
+void add_key(map<int, list<string>>& hash_table, const string& key){
+    if (search_key(hash_table,key)){
+        cout << "key "<< key << " already exists in the table." << endl;
+        return;
+    }
+    int index = gen_hash_index(key);
+    hash_table[index].push_back(key);
+    cout << "key " << key << " added to the table at index " << index << endl;
+}
 
 int main() {
 
@@ -104,10 +113,15 @@ int main() {
                         }//2
              break;
     }
-            case 3:
-            cout <<"NY";
+            
+            case 3:{
+                string key;
+                cout << "Enter key to add: ";
+                cin >> key;
+                add_key(hash_table, key);
              break;
-
+            }
+            
             case 4:
             cout <<"NY";
              break;
