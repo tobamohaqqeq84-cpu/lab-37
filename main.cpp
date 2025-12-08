@@ -19,7 +19,21 @@ int gen_hash_index(const string& s){
     }
     return sum % TABLE_SIZE;
 }
-void load
+void load_data(map<int, list<string>>& hash_table){
+ifstream fin("lab-37-data.txt");
+if(!fin){
+    cout << "Error opening file!" << endl;
+    return;
+}
+    string line;
+    while (fin >> line){
+        int index = gen_hash_index(line);
+        hash_table[index].push_back(line);
+    }
+    cout << "Data loaded successfully!" << endl;
+}
+    
+    
 int main() {
 
     ifstream fin("lab-37-data.txt");
