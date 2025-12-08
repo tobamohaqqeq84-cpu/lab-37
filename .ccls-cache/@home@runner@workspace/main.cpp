@@ -90,15 +90,20 @@ int main() {
             case 1:
                 print_first_100(hash_table);
                 break;
-            case 2: 
+            
+            case 2: {
                 string key;
             cout <<"Enter key to search for: ";
                 cin >> key;
 
-                if (search_key(hash_table, key))
-                    cout 
+                if (search_key(hash_table, key)){
+                    int index = gen_hash_index(key);
+                    cout<< "key " << key << " found at index "<< index << endl;
+                     }else{
+                     cout << "key " << key << " not found." << endl;
+                        }
              break;
-
+    }
             case 3:
             cout <<"NY";
              break;
