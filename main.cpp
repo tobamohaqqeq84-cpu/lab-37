@@ -72,11 +72,16 @@ bool remove_key(map<int, list<string>>& hash_table, const string& key)
     }
     list<string>& bucket = it->second;
     for (auto lit = bucket.begin(); lit != bucket.end(); ++lit){
-        if (*lit == key)
+        if (*lit == key){
             bucket.erase(lit);
-
+        if(bucket.empty()){
+            hash_table.erase(it);
+        }
+return true;
         
     }
+}
+return false;
 }
 
 int main() {
@@ -139,9 +144,17 @@ int main() {
              break;
             }
             
-            case 4:
-            cout <<"NY";
+            case 4:{
+                string key;
+                cout << "Enter key to remove: ";
+                cin >> key;
+                if (remove_key(hash_table, key)){
+                    cout << "key " << key << " removed from the table." << endl;
+                }else{
+                    cout << "key " << key << " not found in the table." << endl;
+                }
              break;
+            }
 
             case 5:
             cout <<"NY";
