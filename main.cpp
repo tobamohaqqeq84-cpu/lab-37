@@ -7,6 +7,7 @@
 #include <map>
 #include <list>
 #include <fstream> 
+#include <limits>
 
 using namespace std;
 
@@ -15,10 +16,11 @@ const int TABLE_SIZE = 97;
 int gen_hash_index(const string& s){
     int sum =0;
     for (char c : s){
-        sum += (int)c;
+        sum += static_cast<int> (c);
     }
     return sum % TABLE_SIZE;
 }
+
 void print_first_100(const map<int, list<string>>& hash_table){
     int shown = 0;
     for (const auto& entry : hash_table){
@@ -33,8 +35,8 @@ void print_first_100(const map<int, list<string>>& hash_table){
         }
     }
 }
-    
-    
+
+
 int main() {
 
     ifstream fin("lab-37-data.txt");
@@ -65,25 +67,38 @@ int main() {
 
         if(!cin ){
             cin.clear();
-            cin.ignore(10000, \n);
+            cin.ignore(10000, '\n');
             continue;
         }
         switch(choice){
-            
-        }
-        }
-    int shown = 0;
-    for(auto &entry :hash_table){
-        cout << "Index " << entry.first << ": ";
-        for (const string &s : entry.second){
-            cout << s << " ";
-        }
-        cout << endl;
-        shown++;
-        if (shown == 100){
+            case 1:
+                print_first_100(hash_table);
+                break;
+            case 2: 
+            cout <<"NY";
+             break;
+
+            case 3:
+            cout <<"NY";
+             break;
+
+            case 4:
+            cout <<"NY";
+             break;
+
+            case 5:
+            cout <<"NY";
+             break;
+
+            case 6:
+            cout << "Exiting program." << endl;
             break;
+
+            default:
+            cout << "Invalid choice. Please try again." << endl;
         }
-        }
-        return 0;
-    }
-//THE END
+        }while (choice!=6);
+    return 0;
+            
+            
+    
