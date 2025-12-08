@@ -8,6 +8,7 @@
 #include <list>
 #include <fstream> 
 #include <limits>
+#include <algorithm>
 
 using namespace std;
 
