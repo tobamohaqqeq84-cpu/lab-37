@@ -36,6 +36,22 @@ void print_first_100(const map<int, list<string>>& hash_table){
     }
 }
 
+bool search_key(const map<int, list<string>>& hash_table, const string& key){
+    int index = gen_hash_index(key);
+    auto it = hash_table.find(index);
+
+    if (it == hash_table.end()){
+        return false;
+    }
+    const list< string>& bucket = it->second;
+    for (const string& s : bucket){
+        if (s == key){
+            return true;
+        }
+}
+    return false;
+    }
+
 
 int main() {
 
@@ -75,7 +91,12 @@ int main() {
                 print_first_100(hash_table);
                 break;
             case 2: 
-            cout <<"NY";
+                string key;
+            cout <<"Enter key to search for: ";
+                cin >> key;
+
+                if (search_key(hash_table, key))
+                    cout 
              break;
 
             case 3:
