@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 #include <list>
-#include <fstream> // for part 2
+#include <fstream> 
 
 using namespace std;
 
@@ -19,6 +19,7 @@ int gen_hash_index(const string& s){
     }
     return sum % TABLE_SIZE;
 }
+void load
 int main() {
 
     ifstream fin("lab-37-data.txt");
