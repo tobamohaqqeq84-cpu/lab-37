@@ -110,7 +110,7 @@ int main() {
                     cout<< "key " << key << " found at index "<< index << endl;
                      }else{
                      cout << "key " << key << " not found." << endl;
-                        }//2
+                        }//3
              break;
     }
             
