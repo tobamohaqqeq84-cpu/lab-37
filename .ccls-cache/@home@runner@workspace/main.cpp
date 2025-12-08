@@ -85,6 +85,23 @@ return true;
 return false;
 }
 
+bool modify_key( map<int, list<string>>& hash_table, const string& old_key, const string& new_key){
+    if (!search_key(hash_table, old_key)){
+        cout << "key " << old_key << " not found in the table." << endl;
+        return false;
+    }
+    if (search_key(hash_table, new_key)){
+        cout << "key " << new_key << " already exists in the table." << endl;
+        return false;
+    }
+    remove_key(hash_table, old_key);
+
+    int new_index = gen_hash_index(new_key);
+    hash_table[new_index].push_back(new_key);
+    
+    cout << "key " << old_key << " modified to " << new_key << " at index " << new_index << endl;
+return true;
+}
 int main() {
 
     ifstream fin("lab-37-data.txt");
@@ -157,10 +174,17 @@ int main() {
              break;
             }
 
-            case 5:
-            cout <<"NY";
+            case 5:{
+                string old_key, new_key;
+                cout << "Enter key to modify: ";
+                cin >> old_key;
+                cout << "Enter new key: ";
+                cin >> new_key;
+
+                modify_key(hash_table, old_key, new_key);
              break;
 
+            }
             case 6:
             cout << "Exiting program." << endl;
             break;
