@@ -1,4 +1,4 @@
-//Toba Mohaqqeq
+//Toba Mohaqqeq☃︎ 🎅🎄❄️☃️🎁🦌
 //COMSC-210
 //lab -38
 
@@ -196,5 +196,7 @@ int main() {
     
     return 0;
 }      
-            
-    
+            //The End 🦌🛷
+//Merry cHristmas professor 🎄☃️❄️ :) (In advance) 🎄🎅🏻☃️❆🎀🔔☃︎
+
+ //Last lab 🎉🥳🎊🎁
