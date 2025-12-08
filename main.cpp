@@ -62,6 +62,23 @@ void add_key(map<int, list<string>>& hash_table, const string& key){
     cout << "key " << key << " added to the table at index " << index << endl;
 }
 
+bool remove_key(map<int, list<string>>& hash_table, const string& key)
+{
+    int index = gen_hash_index(key);
+    auto it = hash_table.find(index);
+
+    if (it == hash_table.end()){
+        return false;
+    }
+    list<string>& bucket = it->second;
+    for (auto lit = bucket.begin(); lit != bucket.end(); ++lit){
+        if (*lit == key)
+            bucket.erase(lit);
+
+        
+    }
+}
+
 int main() {
 
     ifstream fin("lab-37-data.txt");
